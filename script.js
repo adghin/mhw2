@@ -66,22 +66,16 @@ function clickAnswer(event) {
 }
 
 function resetQuiz() {
-	//reset.removeEventListener('click',resetQuiz);
-
+	reset.removeEventListener('click',resetQuiz);
+	countAnswers = {};
+	occurrences  = {};
+	
 	for(let item of answers) {
 		item.classList.remove('selected');
 		item.classList.remove('opaque');
 		item.querySelector('.checkbox').src = 'images/unchecked.png';
 	}
-
-	for(let key in countAnswers) {
-		delete countAnswers[key];
-	}
-
-	for(let key in occurrences) {
-		delete occurrences[key];
-	}
-
+	
 	h1.textContent = '';
 	p.textContent  = '';
 
