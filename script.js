@@ -26,9 +26,6 @@ function findMax() {
 }
 
 function showAnswer() {
-	for(const item of answers) 
-		item.removeEventListener('click',clickAnswer);
-
 	displayAnswer.classList.add('shown');
 
 	const choice = findMax();
@@ -61,8 +58,12 @@ function clickAnswer(event) {
 		deselectImage.src = 'images/unchecked.png';
 	}
 
-	if(Object.keys(countAnswers).length === MAX_ANSWER) 
+	if(Object.keys(countAnswers).length === MAX_ANSWER) {
+		for(const item of answers) 
+			item.removeEventListener('click',clickAnswer);	
+		
 		showAnswer();
+	}
 }
 
 function resetQuiz() {
